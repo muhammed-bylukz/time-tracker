@@ -9,6 +9,9 @@ export async function GET(request: NextRequest) {
     await connectDB();
 
     const token = request.headers.get('authorization');
+    if (!token) {
+      return NextResponse.json({ error: 'No token provided' }, { status: 401 });
+    }
     const decoded = getUserFromToken(token);
     
     if (!decoded) {
@@ -74,7 +77,8 @@ export async function GET(request: NextRequest) {
     }, {} as any);
 
     // Freelancer breakdown (admin only)
-    let freelancerBreakdown = [];
+    let freelancerBreakdown = [] as any;
+    
     if (decoded.role === 'admin') {
       const freelancers = await User.find({ role: 'freelancer' });
       freelancerBreakdown = freelancers.map(freelancer => {

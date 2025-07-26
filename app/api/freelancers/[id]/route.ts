@@ -8,6 +8,9 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
     await connectDB();
 
     const token = request.headers.get('authorization');
+    if (!token) {
+      return NextResponse.json({ error: 'No token provided' }, { status: 401 });
+    }
     const decoded = getUserFromToken(token);
     
     if (!decoded || decoded.role !== 'admin') {
@@ -48,6 +51,9 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
     await connectDB();
 
     const token = request.headers.get('authorization');
+    if (!token) {
+      return NextResponse.json({ error: 'No token provided' }, { status: 401 });
+    }
     const decoded = getUserFromToken(token);
     
     if (!decoded || decoded.role !== 'admin') {

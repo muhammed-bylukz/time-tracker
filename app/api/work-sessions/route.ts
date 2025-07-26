@@ -9,6 +9,9 @@ export async function GET(request: NextRequest) {
     await connectDB();
 
     const token = request.headers.get('authorization');
+    if (!token) {
+      return NextResponse.json({ error: 'No token provided' }, { status: 401 });
+    }
     const decoded = getUserFromToken(token);
     
     if (!decoded) {
@@ -53,6 +56,9 @@ export async function POST(request: NextRequest) {
     await connectDB();
 
     const token = request.headers.get('authorization');
+    if (!token) {
+      return NextResponse.json({ error: 'No token provided' }, { status: 401 });
+    }
     const decoded = getUserFromToken(token);
     
     if (!decoded || decoded.role !== 'freelancer') {
