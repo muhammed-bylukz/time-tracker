@@ -43,7 +43,7 @@ export default function LoginForm() {
               <Clock className="h-8 w-8 text-blue-600" />
             </div>
           </div>
-          <CardTitle className="text-2xl font-bold">FreelanceTracker</CardTitle>
+          <CardTitle className="text-2xl font-bold">Tracker</CardTitle>
           <CardDescription>
             Sign in to your account to start tracking work hours
           </CardDescription>
@@ -89,13 +89,13 @@ export default function LoginForm() {
               {isLoading ? 'Signing in...' : 'Sign in'}
             </Button>
           </form>
-          <div className="mt-6 text-center">
+          {/* <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               Demo credentials:<br />
               <span className="font-medium">Admin:</span> admin@demo.com / admin123<br />
               <span className="font-medium">Freelancer:</span> freelancer@demo.com / freelancer123
             </p>
-          </div>
+          </div> */}
         </CardContent>
       </Card>
     </div>

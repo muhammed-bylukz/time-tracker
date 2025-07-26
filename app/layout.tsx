@@ -6,8 +6,8 @@ import AuthProviderComponent from '@/components/AuthProvider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'FreelanceTracker - Professional Time Tracking',
-  description: 'Professional time tracking and management system for freelancers and project managers',
+  title: 'Tracker - Professional Time Tracking',
+  description: 'Professional time tracking and management system',
 };
 
 export default function RootLayout({
